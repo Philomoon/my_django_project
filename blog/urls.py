@@ -21,5 +21,34 @@ urlpatterns = [
         name='blog_detail'
         ),
 
+    # scienceカテゴリの一覧ページのURLパターン
+    path(
+        # sicenceカテゴリの一覧ページのURLは「science-list」
+        'science-list/',
+        # viewsモジュールのScienceViewを実行
+        views.ScienceView.as_view(),
+        # URLパターンの名前を'science_list'にする
+        name='science_list'
+    ),
+
+    # dailylifeカテゴリの一覧ページのURLパターン
+    path(
+        # dailylifeカテゴリの一覧ページのURLは「dailylife-list」
+        'dailulife-list/',
+        # viewsモジュールのDailylifeViewを実行
+        views.DailylifeView.as_view(),
+        # URLパターンの名前を'dailylife_list'にする
+        name='dailylife_list'
+    ),
+
+    # musicカテゴリの一覧ページのURLパターン
+    path(
+        # musicカテゴリの一覧ページのURLは「music-list」
+        'music_list',
+        # viewsモジュールのMusicViewを実行
+        views.MusicView.as_view(),
+        # URLパターンの名前を'music_list'にする
+        name='music_list'
+    ),
 
 ]

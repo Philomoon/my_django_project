@@ -6,7 +6,7 @@
 
 <!-- ヘッダー情報のページタイトルは
 ベーステンプレートを利用するページで設定する-->
-{% block title %}Django's Blog{% endblock %}
+{% block title %}Django's Blog - Music{% endblock %}
 
 
 <!-- Page Header-->
@@ -21,7 +21,7 @@
                     <!-- ヘッダーの大見出し（タイトル）を変更 -->
                     <h1>Django's Blog</h1>
                     <!-- サブタイトルを変更 -->
-                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    <span class="subheading">Musicカテゴリの記事一覧</span>
                 </div>
             </div>
         </div>
@@ -36,10 +36,10 @@
     <div class="row gx-4 gx-lg-5 justify-content-center">
         <div class="col-md-10 col-lg-8 col-xl-7">
             <!-- 
-            全レコードが格納されたorderby_recordsから
+            Scienceレコードが格納されたscience_recordsから
             レコードを1件ずつrecordに取り出す
             -->
-            {% for record in orderby_records %}
+            {% for record in music_records %}
             <!-- Post preview-->
             <div class="post-preview">
                 <!--
