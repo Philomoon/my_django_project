@@ -51,4 +51,13 @@ urlpatterns = [
         name='music_list'
     ),
 
+    # 問い合わせページのURLパターン
+    path(
+        # 問い合わせページのURLは「contact/」
+        'contact/',
+        # viewsモジュールのContactViewを実行
+        views.ContactView.as_view(),
+        # URLパターンの名前を'contact'にする
+        name='contact'
+    )
 ]

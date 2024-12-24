@@ -1,11 +1,17 @@
-# %%
 from django.shortcuts import render
 
 # django.views.genericからListView、DetailViewをインポート
 from django.views.generic import ListView,DetailView
 #モデルBlogPostをインポート
 from .models import BlogPost
-
+# django.views.genericからFormViewをインポート
+from django.views.generic import FormView
+# django.urlsからrevers_lazyをインポート
+from django.urls import reverse_lazy
+# formsモジュールからContactFormをインポート
+from .forms import ContactForm
+# django.contribからmessagesをインポート
+from django.contrib import messages
 class IndexView(ListView):
     '''トップページのビュー
     
@@ -81,3 +87,37 @@ class MusicView(ListView):
     queryset = BlogPost.objects.filter(category='music').order_by('-posted_at')
     # 1ページに表示するレコード数
     paginate_by = 2
+
+
+class ContactView(FormView):
+    '''問い合わせページを一覧表示するビュー
+    
+    '''
+    # contact.htmlをレンダリングする
+    template_name = 'contact.html'
+    # クラス変数form_classにforms.pyで定義したConractFormを設定
+    form_class = ContactForm
+    # 送信完了後にリダイレクトするページ
+    success_url = reverse_lazy('contact')
+
+    def form_valid(self, form):
+        '''FormViewクラスのform_valid()をオーバーライド
+        フォームのバリデーションを通過したデータがPOSTされた時に呼ばれる
+        メール送信を行う
+        
+        parameters:
+            form(django.forms.Form):
+                form_classに格納されているフォームのオブジェクト
+        Return:
+            HttpResponseRedirectのオブジェクト
+            オブジェクトをインスタンス化するとsuccess_urlで
+            設定されているURLにリダイレクトされる
+        '''
+        # forms.pyのsend_email()を実行してメール送信を行う
+        form.send_email()
+        # 送信完了後に表示するメッセージ
+        messages.success(
+            self.request,'お問い合わせは正常に送信されました。'
+        )
+        # 戻り値はスーパークラスのform_valid()の戻り値（HttpResponseRedirect)
+        return super().form_valid(form)
