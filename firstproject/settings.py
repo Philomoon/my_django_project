@@ -130,3 +130,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MESSAGE_TAGS = {
     constants.SUCCESS:'alert alert-success',
 }
+
+#フォームの送信デートをターミナルに出力
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Gmailの送信サーバーからメールを送信するための環境変数を定義
+DEFAULT_FROM_EMAIL = 'rs.philuna@gmail.com' 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'rs.philuna@gmail.com'
+EMAIL_HOST_PASSWARD = 'NYUki1833'
+EMAIL_USE_TLS = True

@@ -98,7 +98,7 @@ class ContactView(FormView):
     # クラス変数form_classにforms.pyで定義したConractFormを設定
     form_class = ContactForm
     # 送信完了後にリダイレクトするページ
-    success_url = reverse_lazy('contact')
+    success_url = reverse_lazy('blog:contact')
 
     def form_valid(self, form):
         '''FormViewクラスのform_valid()をオーバーライド

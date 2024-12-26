@@ -34,7 +34,7 @@ urlpatterns = [
     # dailylifeカテゴリの一覧ページのURLパターン
     path(
         # dailylifeカテゴリの一覧ページのURLは「dailylife-list」
-        'dailulife-list/',
+        'dailylife-list/',
         # viewsモジュールのDailylifeViewを実行
         views.DailylifeView.as_view(),
         # URLパターンの名前を'dailylife_list'にする
@@ -44,7 +44,7 @@ urlpatterns = [
     # musicカテゴリの一覧ページのURLパターン
     path(
         # musicカテゴリの一覧ページのURLは「music-list」
-        'music_list',
+        'music_list/',
         # viewsモジュールのMusicViewを実行
         views.MusicView.as_view(),
         # URLパターンの名前を'music_list'にする
