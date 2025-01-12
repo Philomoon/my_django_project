@@ -56,7 +56,7 @@ class ContactForm(forms.Form):
         # メールの送信元のアドレス
         from_email = 'rs.philuna@gmail.com'
         # 送信先のメールアドレス
-        to_list = ['likeamoon0712@gmail.com']
+        to_list = ['rs.philuna@gmail.com']
         # EmailMessageオブジェクトを生成
         email_message = EmailMessage(
                             subject=subject,
